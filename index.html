@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emmett Normand | Materials Engineer</title>
+  <meta name="description" content="Emmett Normand: materials engineering student at Cal Poly San Luis Obispo with nine years in electronics repair, testing, and e-waste reclamation at iFixit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F7F8F9;
+      --ink: #1C2430;
+      --ink-soft: #566171;
+      --rule: #D5DAE1;
+      --copper: #A85E2B;
+      --copper-tint: #F3E6DD;
+      --measure: 62ch;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--copper); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--copper);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 72px;
+    }
+
+    /* Left column: sticky identity */
+    .side {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      padding: 72px 0 48px;
+      display: flex;
+      flex-direction: column;
+    }
+    .name {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+    .name .line { display: block; }
+    .title {
+      font-size: 17px;
+      font-weight: 500;
+      margin: 0 0 4px;
+    }
+    .sub {
+      color: var(--ink-soft);
+      margin: 0;
+      font-size: 15px;
+    }
+    .nav {
+      margin: 48px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav li + li { margin-top: 10px; }
+    .nav a {
+      color: var(--ink-soft);
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav a::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: var(--rule);
+      transition: width .2s, background .2s;
+    }
+    .nav a:hover, .nav a.active { color: var(--ink); text-decoration: none; }
+    .nav a:hover::before, .nav a.active::before { width: 34px; background: var(--copper); }
+
+    .contact {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-size: 15px;
+      display: grid;
+      gap: 6px;
+    }
+    .contact a { color: var(--ink); }
+    .contact a:hover { color: var(--copper); }
+    .download {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 16px;
+      background: var(--ink);
+      color: var(--paper) !important;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 15px;
+      width: fit-content;
+    }
+    .download:hover { background: var(--copper); text-decoration: none; }
+
+    /* Right column: content */
+    .main { padding: 72px 0 96px; }
+    .intro {
+      max-width: var(--measure);
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 400;
+      margin: 0 0 12px;
+      text-wrap: pretty;
+    }
+    .intro-more {
+      max-width: var(--measure);
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    section { padding-top: 64px; }
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--copper);
+      margin: 0 0 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      max-width: 720px;
+    }
+    .role + .role { margin-top: 40px; }
+    .when {
+      color: var(--ink-soft);
+      font-size: 15px;
+      padding-top: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+    .role h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .role .org { color: var(--ink-soft); font-weight: 400; }
+    .role ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      max-width: var(--measure);
+    }
+    .role li + li { margin-top: 8px; }
+    .role li::marker { color: var(--copper); }
+
+    .edu {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      max-width: 720px;
+    }
+    .edu + .edu { margin-top: 22px; }
+    .edu h3 { margin: 0; font-size: 17px; font-weight: 600; }
+    .edu p { margin: 2px 0 0; color: var(--ink-soft); }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 40px;
+      max-width: 720px;
+    }
+    .skills h3 { margin: 0 0 8px; font-size: 15px; font-weight: 600; }
+    .skills ul { margin: 0; padding: 0; list-style: none; color: var(--ink-soft); }
+    .skills li { padding: 3px 0; border-bottom: 1px dashed var(--rule); }
+    .skills li:last-child { border-bottom: 0; }
+
+    .projects { display: grid; gap: 28px; max-width: 720px; }
+    .project { display: grid; grid-template-columns: 120px 1fr; gap: 24px; }
+    .project .tag { color: var(--copper); font-size: 15px; padding-top: 3px; }
+    .project h3 { margin: 0; font-size: 17px; font-weight: 600; }
+    .project p { margin: 6px 0 0; color: var(--ink-soft); max-width: var(--measure); }
+
+    .foot {
+      margin-top: 96px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; gap: 0; padding: 0 22px; }
+      .side { position: static; height: auto; padding: 48px 0 0; }
+      .nav { display: none; }
+      .contact { margin-top: 28px; }
+      .main { padding-top: 40px; }
+      .name { font-size: 34px; }
+      .intro { font-size: 20px; }
+      .role, .edu, .project { grid-template-columns: 1fr; gap: 4px; }
+      .skills { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="side">
+    <h1 class="name"><span class="line">Emmett</span><span class="line">Normand</span></h1>
+    <p class="title">Materials Engineering, Cal Poly San Luis Obispo</p>
+    <p class="sub">B.S. expected June 2027</p>
+
+    <ul class="nav" aria-label="Sections">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+
+    <div class="contact">
+      <a href="mailto:emmettnormand@gmail.com">emmettnormand@gmail.com</a>
+      <a href="tel:+15627541841">+1 (562) 754-1841</a>
+      <span>San Luis Obispo, CA</span>
+      <a class="download" href="Emmett_Normand_Resume.pdf" download>Download resume (PDF)</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section id="about" style="padding-top:0">
+      <p class="intro">I take apart electronics for a living and I'm studying why they fail. Nine years at iFixit running device test benches, e-waste and battery reclamation, and global returns, now paired with a materials engineering degree.</p>
+      <p class="intro-more">I'm interested in electronics reliability, failure analysis, and the materials side of repairability and recycling. Currently looking for materials or process engineering internships in the electronics industry.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <article class="role">
+        <div class="when">2017 to present</div>
+        <div>
+          <h3>Repair, Test &amp; Reclamation <span class="org">at iFixit</span></h3>
+          <ul>
+            <li>Manage and maintain iFixit's device test benches for iPhones, PCs, and other consumer electronics, keeping test coverage and throughput consistent.</li>
+            <li>Built a buyback program that reclaims value from damaged components, recovering thousands of dollars in revenue that would otherwise have been scrapped.</li>
+            <li>Streamlined returned-goods handling, including e-waste and lithium battery disposal, with safety and regulatory compliance as the first priority.</li>
+            <li>Manage battery recycler relationships and vendor accounts, including onboarding a new recycling partner when the previous one stopped accepting cells.</li>
+            <li>Lead and mentor a team across repair, testing, and reclamation workflows.</li>
+            <li>Oversee the global returns process, coordinating logistics with international teams.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="when">2017</div>
+        <div>
+          <h3>Retail Sales <span class="org">at O'Reilly Auto Parts</span></h3>
+          <ul>
+            <li>Helped customers identify the right parts for their vehicles and kept the sales floor organized.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="when">2015 to 2016</div>
+        <div>
+          <h3>Bicycle Mechanic <span class="org">at The Bicycle Stand</span></h3>
+          <ul>
+            <li>Shimano-certified mechanic providing full-service repairs, builds, and customer support.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <div class="tag">Personal</div>
+          <div>
+            <h3>Solar charging system for a 52 V e-bike</h3>
+            <p>Designing a solar bike cover with integrated panels to charge a CYC e-bike pack off-grid, including charge controller, storage, and connector selection.</p>
+          </div>
+        </article>
+        <article class="project">
+          <div class="tag">Cal Poly</div>
+          <div>
+            <h3>Senior project (placeholder)</h3>
+            <p>Replace with your senior project or a materials lab project: what you tested, what you found, and what tools you used.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div>
+          <h3>Electronics &amp; repair</h3>
+          <ul>
+            <li>Device diagnostics and test benches</li>
+            <li>Soldering and microsoldering</li>
+            <li>Lithium battery handling and disposal</li>
+            <li>E-waste reclamation and buyback</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Materials &amp; lab</h3>
+          <ul>
+            <li>Materials characterization (add specifics)</li>
+            <li>Mechanical testing (add specifics)</li>
+            <li>Failure analysis</li>
+            <li>Lab safety and compliance</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Software</h3>
+          <ul>
+            <li>Python (add others from your CS degree)</li>
+            <li>CAD (add tool names)</li>
+            <li>Spreadsheets and data analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Operations</h3>
+          <ul>
+            <li>Team leadership and mentoring</li>
+            <li>Vendor and recycler relationships</li>
+            <li>Returns and reverse logistics</li>
+            <li>Process improvement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <article class="edu">
+        <div class="when">June 2027</div>
+        <div>
+          <h3>B.S. Materials Engineering</h3>
+          <p>California Polytechnic State University, San Luis Obispo</p>
+        </div>
+      </article>
+      <article class="edu">
+        <div class="when">Dec 2024</div>
+        <div>
+          <h3>A.S. Engineering</h3>
+          <p>Cuesta College</p>
+        </div>
+      </article>
+      <article class="edu">
+        <div class="when">Aug 2024</div>
+        <div>
+          <h3>A.S. Computer Science</h3>
+          <p>Cuesta College</p>
+        </div>
+      </article>
+      <article class="edu">
+        <div class="when">2016</div>
+        <div>
+          <h3>Shimano Technical Certification</h3>
+          <p>Bicycle mechanic</p>
+        </div>
+      </article>
+    </section>
+
+    <p class="foot">&copy; 2026 Emmett Normand</p>
+  </main>
+</div>
+
+<script>
+  // Highlight the section in view in the side nav. Purely cosmetic.
+  const links = [...document.querySelectorAll('.nav a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => s && io.observe(s));
+  }
+</script>
+</body>
+</html>
